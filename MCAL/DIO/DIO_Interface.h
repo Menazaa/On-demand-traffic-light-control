@@ -10,4 +10,8 @@
 
 
 
+
+// FUNCTIONS PROTOTYPES
+
+
 #endif /* MCAL_DIO_DIO_INTERFACE_H_ */
