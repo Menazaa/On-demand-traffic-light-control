@@ -10,9 +10,11 @@
 
 
 
-
 // FUNCTIONS PROTOTYPES
-void DIO_voidSetPortDirection(DIO_PORT_NAME PortName,);
+void	DIO_voidSetPortDirection(PORT_NAME PortName, PORT_DIRECTION PortDirection);
+void	DIO_voidSetPinDirection(PORT_NAME PortName, PORT_DIRECTION PortDirection, PIN_NUMBER Pin);
+u8		DIO_u8GetPortValue(PORT_NAME PortName);
+
 
 
 #endif /* MCAL_DIO_DIO_INTERFACE_H_ */
