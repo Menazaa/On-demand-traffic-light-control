@@ -18,10 +18,10 @@ typedef struct{
 
 // DIO PORTS REGISTERS DEFINATION
 
-volatile DIO_t*   const PORTA       = (DIO_t*)0x39;
-volatile DIO_t*   const PORTB       = (DIO_t*)0x36;
-volatile DIO_t*   const PORTC       = (DIO_t*)0x33;
-volatile DIO_t*   const PORTD       = (DIO_t*)0x30;
+volatile DIO_t*   const PORTA_REG       = (DIO_t*)0x39;
+volatile DIO_t*   const PORTB_REG       = (DIO_t*)0x36;
+volatile DIO_t*   const PORTC_REG       = (DIO_t*)0x33;
+volatile DIO_t*   const PORTD_REG       = (DIO_t*)0x30;
 
 // PORTx Definitions
 typedef enum{
