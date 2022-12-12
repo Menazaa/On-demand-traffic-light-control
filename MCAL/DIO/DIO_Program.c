@@ -14,6 +14,8 @@
 #include "DIO_Interface.h"
 
 
+
+// DIRECTION FUNCTIONS
 void	DIO_voidSetPortDirection(DIO_PORT_ID PortID, DIO_PORT_DIRECTION PortDirection){
 
 	if(PortDirection == INPUT){
@@ -72,3 +74,41 @@ void	DIO_voidSetPinDirection(DIO_PORT_ID PortID, DIO_PORT_DIRECTION PortDirectio
 }
 
 
+// SET FUNCTIONS
+void	DIO_voidSetPortValue(DIO_PORT_ID PortID, u8 Value){
+
+	switch(PortID){
+
+		case PORTA:	PORTA_REG->PORT = Value; break;
+		case PORTB:	PORTB_REG->PORT = Value; break;
+		case PORTC:	PORTC_REG->PORT = Value; break;
+		case PORTD:	PORTD_REG->PORT = Value; break;
+
+		}
+
+}
+void	DIO_voidSetPindValue(DIO_PORT_ID PortID, DIO_PIN_STATE State, DIO_PIN_NUMBER Pin){
+
+	if(State == HIGH){
+		switch(PortID){
+
+			case PORTA:	PORTA_REG->PORT |= (1<<Pin); break;
+			case PORTB:	PORTB_REG->PORT |= (1<<Pin); break;
+			case PORTC:	PORTC_REG->PORT |= (1<<Pin); break;
+			case PORTD:	PORTD_REG->PORT |= (1<<Pin); break;
+
+
+					}
+	}else if(State == LOW){
+		switch(PortID){
+
+			case PORTA:	PORTA_REG->PORT &= ~(1<<Pin); break;
+			case PORTB:	PORTB_REG->PORT &= ~(1<<Pin); break;
+			case PORTC:	PORTC_REG->PORT &= ~(1<<Pin); break;
+			case PORTD:	PORTD_REG->PORT &= ~(1<<Pin); break;
+
+
+					}
+	}
+
+}
