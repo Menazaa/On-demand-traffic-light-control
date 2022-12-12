@@ -12,6 +12,7 @@
 
 
 // FUNCTIONS PROTOTYPES
+void DIO_voidSetPortDirection(DIO_PORT_NAME PortName,);
 
 
 #endif /* MCAL_DIO_DIO_INTERFACE_H_ */
