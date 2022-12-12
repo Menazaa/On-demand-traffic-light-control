@@ -11,10 +11,15 @@
 
 
 // FUNCTIONS PROTOTYPES
-void	DIO_voidSetPortDirection(PORT_NAME PortName, PORT_DIRECTION PortDirection);
-void	DIO_voidSetPinDirection(PORT_NAME PortName, PORT_DIRECTION PortDirection, PIN_NUMBER Pin);
-u8		DIO_u8GetPortValue(PORT_NAME PortName);
 
-
+// Direction functions
+void	DIO_voidSetPortDirection(DIO_PORT_ID PortID, DIO_PORT_DIRECTION PortDirection);
+void	DIO_voidSetPinDirection(DIO_PORT_ID PorID, DIO_PORT_DIRECTION PortDirection, DIO_PIN_NUMBER Pin);
+// SET FUNCTIONS
+void	DIO_voidSetPortValue(DIO_PORT_ID PortID, DIO_PIN_STATE State);
+void	DIO_voidSetPindValue(DIO_PORT_ID PortID, DIO_PIN_STATE State, DIO_PIN_NUMBER Pin);
+// GET FUNCTIONS
+u8		DIO_u8GetPortValue(DIO_PORT_ID PortID);
+u8		DIO_u8GetPinValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin);
 
 #endif /* MCAL_DIO_DIO_INTERFACE_H_ */

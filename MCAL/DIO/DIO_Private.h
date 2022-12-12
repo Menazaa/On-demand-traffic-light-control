@@ -14,7 +14,7 @@ typedef enum{
 	PORTB,
 	PORTC,
 	PORTD
-}PORT_NAME;
+}DIO_PORT_ID;
 
 typedef enum{
 	PIN0,
@@ -25,12 +25,17 @@ typedef enum{
 	PIN5,
 	PIN6,
 	PIN7,
-}PIN_NUMBER;
+}DIO_PIN_NUMBER;
 
 typedef enum{
 	INPUT,
 	OUTPUT
-}PORT_DIRECTION;
+}DIO_PORT_DIRECTION;
+
+typedef enum{
+	LOW,
+	HIGH
+}DIO_PIN_STATE;
 
 
 
