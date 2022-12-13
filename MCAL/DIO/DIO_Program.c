@@ -15,6 +15,7 @@
 
 
 
+
 // DIRECTION FUNCTIONS
 void	DIO_voidSetPortDirection(DIO_PORT_ID PortID, DIO_PORT_DIRECTION PortDirection){
 
@@ -78,7 +79,6 @@ void	DIO_voidSetPinDirection(DIO_PORT_ID PortID, DIO_PORT_DIRECTION PortDirectio
 
 // SET FUNCTIONS
 void	DIO_voidSetPortValue(DIO_PORT_ID PortID, u8 Value){
-
 	switch(PortID){
 
 		case PORTA:	PORTA_REG->PORT = Value; break;
@@ -87,7 +87,6 @@ void	DIO_voidSetPortValue(DIO_PORT_ID PortID, u8 Value){
 		case PORTD:	PORTD_REG->PORT = Value; break;
 
 		}
-
 }
 void	DIO_voidSetPindValue(DIO_PORT_ID PortID, DIO_PIN_STATE State, DIO_PIN_NUMBER Pin){
 
@@ -145,4 +144,29 @@ u8		DIO_u8GetPinValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin){
 					}
 		return GET_BIT(tempValue, Pin);
 
+}
+
+
+// TOGGLE FUNCTIONS
+void	DIO_voidTogglePortValue(DIO_PORT_ID PortID, u8 Value){
+
+	switch(PortID){
+
+			case PORTA:	PORTA_REG->PORT ^= 0xFF; break;
+			case PORTB:	PORTB_REG->PORT ^= 0xFF; break;
+			case PORTC:	PORTC_REG->PORT ^= 0xFF; break;
+			case PORTD:	PORTD_REG->PORT ^= 0xFF; break;
+
+			}
+
+}
+void	DIO_voidTogglePindValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin){
+
+	switch(PortID){
+
+		case PORTA:	TOG_BIT(PORTA_REG->PORT, Pin); break;
+		case PORTB:	TOG_BIT(PORTB_REG->PORT, Pin); break;
+		case PORTC:	TOG_BIT(PORTC_REG->PORT, Pin); break;
+		case PORTD:	TOG_BIT(PORTD_REG->PORT, Pin); break;
+	}
 }
