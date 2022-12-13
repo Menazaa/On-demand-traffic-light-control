@@ -23,34 +23,7 @@ volatile DIO_t*   const PORTB_REG       = (DIO_t*)0x36;
 volatile DIO_t*   const PORTC_REG       = (DIO_t*)0x33;
 volatile DIO_t*   const PORTD_REG       = (DIO_t*)0x30;
 
-// PORTx Definitions
-typedef enum{
-	PORTA,
-	PORTB,
-	PORTC,
-	PORTD
-}DIO_PORT_ID;
 
-typedef enum{
-	PIN0,
-	PIN1,
-	PIN2,
-	PIN3,
-	PIN4,
-	PIN5,
-	PIN6,
-	PIN7,
-}DIO_PIN_NUMBER;
-
-typedef enum{
-	INPUT,
-	OUTPUT
-}DIO_PORT_DIRECTION;
-
-typedef enum{
-	LOW,
-	HIGH
-}DIO_PIN_STATE;
 
 
 
