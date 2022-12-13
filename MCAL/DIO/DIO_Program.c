@@ -50,10 +50,12 @@ void	DIO_voidSetPinDirection(DIO_PORT_ID PortID, DIO_PORT_DIRECTION PortDirectio
 
 			switch(PortID){
 
-			case PORTA:	PORTA_REG->DDR &= ~(1<<Pin); break;
-			case PORTB:	PORTB_REG->DDR &= ~(1<<Pin); break;
-			case PORTC:	PORTC_REG->DDR &= ~(1<<Pin); break;
-			case PORTD:	PORTD_REG->DDR &= ~(1<<Pin); break;
+
+			case PORTA:	CLR_BIT(PORTA_REG->DDR, Pin); break;
+			case PORTB:	CLR_BIT(PORTB_REG->DDR, Pin); break;
+			case PORTC:	CLR_BIT(PORTC_REG->DDR, Pin); break;
+			case PORTD:	CLR_BIT(PORTD_REG->DDR, Pin); break;
+
 
 			}
 
@@ -61,10 +63,10 @@ void	DIO_voidSetPinDirection(DIO_PORT_ID PortID, DIO_PORT_DIRECTION PortDirectio
 
 			switch(PortID){
 
-			case PORTA:	PORTA_REG->DDR |= (1<<Pin); break;
-			case PORTB:	PORTB_REG->DDR |= (1<<Pin); break;
-			case PORTC:	PORTC_REG->DDR |= (1<<Pin); break;
-			case PORTD:	PORTD_REG->DDR |= (1<<Pin); break;
+			case PORTA:	SET_BIT(PORTA_REG->DDR,Pin); break;
+			case PORTB:	SET_BIT(PORTB_REG->DDR,Pin); break;
+			case PORTC:	SET_BIT(PORTC_REG->DDR,Pin); break;
+			case PORTD:	SET_BIT(PORTD_REG->DDR,Pin); break;
 
 			}
 
@@ -92,23 +94,55 @@ void	DIO_voidSetPindValue(DIO_PORT_ID PortID, DIO_PIN_STATE State, DIO_PIN_NUMBE
 	if(State == HIGH){
 		switch(PortID){
 
-			case PORTA:	PORTA_REG->PORT |= (1<<Pin); break;
-			case PORTB:	PORTB_REG->PORT |= (1<<Pin); break;
-			case PORTC:	PORTC_REG->PORT |= (1<<Pin); break;
-			case PORTD:	PORTD_REG->PORT |= (1<<Pin); break;
+		case PORTA:	SET_BIT(PORTA_REG->PORT,Pin); break;
+		case PORTB:	SET_BIT(PORTB_REG->PORT,Pin); break;
+		case PORTC:	SET_BIT(PORTC_REG->PORT,Pin); break;
+		case PORTD:	SET_BIT(PORTD_REG->PORT,Pin); break;
 
 
 					}
 	}else if(State == LOW){
 		switch(PortID){
 
-			case PORTA:	PORTA_REG->PORT &= ~(1<<Pin); break;
-			case PORTB:	PORTB_REG->PORT &= ~(1<<Pin); break;
-			case PORTC:	PORTC_REG->PORT &= ~(1<<Pin); break;
-			case PORTD:	PORTD_REG->PORT &= ~(1<<Pin); break;
+		case PORTA:	CLR_BIT(PORTA_REG->PORT, Pin); break;
+		case PORTB:	CLR_BIT(PORTB_REG->PORT, Pin); break;
+		case PORTC:	CLR_BIT(PORTC_REG->PORT, Pin); break;
+		case PORTD:	CLR_BIT(PORTD_REG->PORT, Pin); break;
 
 
 					}
 	}
+
+}
+
+
+// GET FUNCTIONS
+u8		DIO_u8GetPortValue(DIO_PORT_ID PortID){
+
+	u8 tempValue;
+	switch(PortID){
+
+		case PORTA:	tempValue =  PORTA_REG->PIN; break;
+		case PORTB:	tempValue =  PORTB_REG->PIN; break;
+		case PORTC:	tempValue =  PORTC_REG->PIN; break;
+		case PORTD:	tempValue =  PORTD_REG->PIN; break;
+
+				}
+	return tempValue;
+
+
+}
+u8		DIO_u8GetPinValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin){
+
+	u8 tempValue;
+		switch(PortID){
+
+			case PORTA:	tempValue =  PORTA_REG->PIN; break;
+			case PORTB:	tempValue =  PORTB_REG->PIN; break;
+			case PORTC:	tempValue =  PORTC_REG->PIN; break;
+			case PORTD:	tempValue =  PORTD_REG->PIN; break;
+
+					}
+		return GET_BIT(tempValue, Pin);
 
 }

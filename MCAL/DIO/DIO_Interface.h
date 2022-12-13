@@ -21,4 +21,8 @@ void	DIO_voidSetPindValue(DIO_PORT_ID PortID, DIO_PIN_STATE State, DIO_PIN_NUMBE
 u8		DIO_u8GetPortValue(DIO_PORT_ID PortID);
 u8		DIO_u8GetPinValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin);
 
+// TOGGLE FUNCTIONS
+void	DIO_voidTogglePortValue(DIO_PORT_ID PortID, u8 Value);
+void	DIO_voidTogglePindValue(DIO_PORT_ID PortID, DIO_PIN_STATE State, DIO_PIN_NUMBER Pin);
+
 #endif /* MCAL_DIO_DIO_INTERFACE_H_ */
