@@ -5,13 +5,15 @@
  *      Author: Mohamed Menazaa
  */
 
-#include "STD_TYPES.h"
+#include "LIB/STD_TYPES.h"
 
-#include "DIO_Interface.h"
+#include "APP/APP.h"
+
 
 
 int main() {
 
+	LED();
 
     return 0;
 }
