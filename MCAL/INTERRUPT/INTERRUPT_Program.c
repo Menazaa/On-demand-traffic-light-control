@@ -35,9 +35,13 @@ void	INTERRUPT_voidEXTIInit(EXTI_NUM	INT_NUM, EXTI_MODE_t INT_MODE, EXTI_CONTROL
 	}else if(INT_STATE == DISABLE){
 
 		//	Disable The External Interrupt
+		switch(INT_NUM){
+
 			case INT0:CLR_BIT(REG_GICR, BIT_INT0_GICR);break;
 			case INT1:CLR_BIT(REG_GICR, BIT_INT1_GICR);break;
 			case INT2:CLR_BIT(REG_GICR, BIT_INT2_GICR);break;
+
+			}
 	}
 //	Select The External Interrupt Mode
 	switch(INT_NUM){

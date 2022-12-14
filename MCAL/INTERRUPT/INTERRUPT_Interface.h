@@ -34,7 +34,11 @@ void	INTERRUPT_voidGlobalINTEnable(void);
 /*	Global interrupt Disable function	*/
 void	INTERRUPT_voidGlobalINTDisable(void);
 
-/*	External interrupt initialization function	*/
+/*
+ * External interrupt initialization function
+ * NOTE: Interrupt INT2 has only two modes Falling Edge and Rising Edge
+ *
+ * */
 void	INTERRUPT_voidEXTIInit(EXTI_NUM	INT_NUM, EXTI_MODE_t INT_MODE, EXTI_CONTROL_STATUS INT_STATE);
 
 /*	External interrupt enable function	*/
