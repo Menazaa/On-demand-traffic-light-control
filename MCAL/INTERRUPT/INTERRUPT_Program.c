@@ -134,6 +134,38 @@ void	INTERRUPT_voidEXTIDisable(EXTI_NUM	INT_NUM){
 
 
 /*	External interrupt callback function	*/
-void	INTERRUPT_voidEXTICallback(void){
+void	INTERRUPT_voidEXTICallback(EXTI_NUM	INT_NUM, void (*CopyFuncPtr) (void))
+{
+	switch(INT_NUM){
 
+		case INT0:CallBackPtrINT0 = CopyFuncPtr;break;
+		case INT1:CallBackPtrINT1 = CopyFuncPtr;break;
+		case INT2:CallBackPtrINT2 = CopyFuncPtr;break;
+
+		}
+
+}
+
+/*	Writes to INT0 in interrupt vector table*/
+void __vector_1(void) __attribute__((signal,used));
+void __vector_1(void) {				// The compiler Writes to the address of INT0 in interrupt vector table
+	if(CallBackPtrINT0 != NULL){
+	CallBackPtrINT0();			//you can see that __vector_1 is placed at byte address 4, which corresponds to the word address 2 from the data sheet.
+	}
+}
+
+/*	Writes to INT1 in interrupt vector table*/
+void __vector_2(void) __attribute__((signal,used));
+void __vector_2(void) {
+	if(CallBackPtrINT1 != NULL){
+	CallBackPtrINT1();
+	}
+}
+
+/*	Writes to INT1 in interrupt vector table*/
+void __vector_3(void) __attribute__((signal,used));
+void __vector_3(void) {
+	if(CallBackPtrINT2 != NULL){
+	CallBackPtrINT2();
+	}
 }

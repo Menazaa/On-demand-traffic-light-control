@@ -118,7 +118,7 @@ void	DIO_voidSetPindValue(DIO_PORT_ID PortID, DIO_PIN_STATE State, DIO_PIN_NUMBE
 // GET FUNCTIONS
 u8		DIO_u8GetPortValue(DIO_PORT_ID PortID){
 
-	u8 tempValue;
+	u8 tempValue = 0;
 	switch(PortID){
 
 		case PORTA:	tempValue =  PORTA_REG->PIN; break;
@@ -133,7 +133,7 @@ u8		DIO_u8GetPortValue(DIO_PORT_ID PortID){
 }
 u8		DIO_u8GetPinValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin){
 
-	u8 tempValue;
+	u8 tempValue = 0;
 		switch(PortID){
 
 			case PORTA:	tempValue =  PORTA_REG->PIN; break;

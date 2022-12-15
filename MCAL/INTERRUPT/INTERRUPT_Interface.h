@@ -28,6 +28,8 @@ typedef enum{
 }EXTI_NUM;
 
 
+
+
 /*	Global interrupt Enable function	*/
 void	INTERRUPT_voidGlobalINTEnable(void);
 
@@ -48,7 +50,9 @@ void	INTERRUPT_voidEXTIEnable(EXTI_NUM	INT_NUM);
 void	INTERRUPT_voidEXTIDisable(EXTI_NUM	INT_NUM);
 
 /*	External interrupt callback function	*/
-void	INTERRUPT_voidEXTICallback(void);
+void	INTERRUPT_voidEXTICallback(EXTI_NUM	INT_NUM, void (*CopyFuncPtr) (void));
+
+
 
 
 

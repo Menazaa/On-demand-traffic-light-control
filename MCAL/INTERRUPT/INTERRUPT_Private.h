@@ -20,4 +20,10 @@
 #define		BIT_INT1_GICR		7
 #define		BIT_INT2_GICR		5
 
+
+/*	Pointer to ISR	*/
+void (*CallBackPtrINT0) (void) = NULL;
+void (*CallBackPtrINT1) (void) = NULL;
+void (*CallBackPtrINT2) (void) = NULL;
+
 #endif /* MCAL_INTERRUPT_INTERRUPT_PRIVATE_H_ */

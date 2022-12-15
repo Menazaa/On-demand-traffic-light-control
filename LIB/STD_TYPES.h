@@ -22,4 +22,7 @@ typedef     signed char           s8   ;
 typedef     signed short int      s16  ;
 typedef     signed int            s32  ;
 
+
+#define NULL 0x00
+
 #endif /* LIB_STD_TYPES_H_ */
