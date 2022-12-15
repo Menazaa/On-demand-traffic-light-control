@@ -55,4 +55,12 @@ u8		DIO_u8GetPinValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin);
 void	DIO_voidTogglePortValue(DIO_PORT_ID PortID, u8 Value);
 void	DIO_voidTogglePindValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin);
 
+// ///////////////////////////////////////////////////
+
+/*		Add	Pull-up enable functions				*/
+
+//  ///////////////////////////////////////////////////
+
+
+
 #endif /* MCAL_DIO_DIO_INTERFACE_H_ */
