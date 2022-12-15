@@ -142,6 +142,7 @@ u8		DIO_u8GetPinValue(DIO_PORT_ID PortID, DIO_PIN_NUMBER Pin){
 			case PORTD:	tempValue =  PORTD_REG->PIN; break;
 
 					}
+
 		return GET_BIT(tempValue, Pin);
 
 }
