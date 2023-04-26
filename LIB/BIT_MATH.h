@@ -2,7 +2,7 @@
  * BIT_MATH.h
  *
  *  Created on: Dec 12, 2022
- *      Author: moham
+ *      Author: Mohamed Menazaa
  */
 
 #ifndef LIB_BIT_MATH_H_
